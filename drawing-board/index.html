@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drawing Board</title>
+
+    <link rel="stylesheet" href="../shared/sandbox.css" />
+
+    <style>
+      .menu {
+        width: 800px;
+        padding: 10px;
+        background-color: rgb(43, 42, 49);
+        border-radius: 10px 10px 0 0;
+
+        display: flex;
+      }
+
+      .clear {
+        font-size: 20px;
+        padding: 5px 5px;
+
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #fff;
+      }
+
+      #draw {
+        background-color: rgb(248, 249, 250);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="menu">
+        <button class="clear">clear</button>
+      </div>
+      <canvas id="draw" width="800" height="800"></canvas>
+    </div>
+  </body>
+
+  <script>
+    const canvas = document.querySelector('#draw');
+    const ctx = canvas.getContext('2d');
+
+    // 画笔样式
+    ctx.strokeStyle = '#000000';
+    ctx.lineWidth = 3;
+
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+
+    function draw(e) {
+      if (!isDrawing) return;
+
+      ctx.beginPath();
+      ctx.moveTo(lastX, lastY); // 起点：上一次记录的坐标
+      ctx.lineTo(e.offsetX, e.offsetY); // 终点：当前鼠标的坐标
+      ctx.stroke();
+
+      [lastX, lastY] = [e.offsetX, e.offsetY];
+    }
+
+    canvas.addEventListener('mousemove', draw);
+
+    canvas.addEventListener('mousedown', e => {
+      lastX = e.offsetX;
+      lastY = e.offsetY;
+      isDrawing = true;
+    });
+    canvas.addEventListener('mouseup', e => (isDrawing = false));
+
+    // 清除
+    const clear = document.querySelector('.clear');
+    clear.addEventListener('click', () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    });
+  </script>
+</html>

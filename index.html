@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Try | Playground</title>
+    <style>
+      :root {
+        --bg-color: #1a1a1a;
+        --text-color: #e0e0e0;
+        --card-bg: #2a2a2a;
+        --accent-color: #646cff;
+        --hover-color: #747bff;
+      }
+
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+        line-height: 1.6;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+      }
+
+      /* 网格布局：自动适配列数 */
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+
+      /* 卡片样式与悬浮交互 */
+      .project-card {
+        background-color: var(--card-bg);
+        border-radius: 8px;
+        padding: 1.5rem;
+        text-decoration: none;
+        color: inherit;
+        border: 1px solid transparent;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-color);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .project-name {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 0 0 0.5rem 0;
+        color: var(--accent-color);
+      }
+
+      .project-desc {
+        font-size: 0.9rem;
+        opacity: 0.8;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🚀 My Playground</h1>
+    <div class="project-grid" id="project-list"></div>
+
+    <script>
+      // 1. 在这里配置你的项目列表
+      const projects = [
+        {
+          name: 'Drawing Board',
+          description: 'Canvas & Mouse interaction experiments.',
+          path: './drawing-board/index.html',
+        },
+        {
+          name: 'components',
+          description: 'Various widgets',
+          path: './components',
+        },
+        // 以后有新项目，直接在这里按格式添加即可：
+        // {
+        //   name: 'CSS Clock',
+        //   description: 'JS & CSS clock from JavaScript30.',
+        //   path: './css-clock/index.html'
+        // }
+      ];
+
+      // 2. 获取 DOM 容器
+      const container = document.getElementById('project-list');
+
+      // 3. 动态生成卡片并插入页面
+      function renderProjects() {
+        const html = projects
+          .map(
+            project => `
+        <a href="${project.path}" class="project-card">
+          <h2 class="project-name">${project.name}</h2>
+          <p class="project-desc">${project.description}</p>
+        </a>
+      `,
+          )
+          .join('');
+
+        container.innerHTML = html;
+      }
+
+      // 执行渲染
+      renderProjects();
+    </script>
+  </body>
+</html>

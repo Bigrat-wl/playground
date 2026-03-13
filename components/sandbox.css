@@ -1,0 +1,76 @@
+/* =========================================
+   1. 基础盒模型与内外边距重置
+========================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================================
+   2. 搭建组件展示“舞台” (Body 设置)
+========================================= */
+body {
+  /* 让组件始终在屏幕正中央，方便观察 */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* 给一个极其柔和的浅灰蓝色背景，能让纯白色的表单或按钮组件立刻凸显出来 */
+  background-color: #414f63;
+
+  /* 使用现代、干净的系统字体 */
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  color: #333;
+  line-height: 1.5;
+
+  /* 预留一点内边距，防止组件在小屏幕上贴边 */
+  padding: 20px;
+}
+
+/* =========================================
+   3. 表单与按钮的深度重置 (核心部分)
+========================================= */
+input,
+button,
+textarea,
+select {
+  /* 强制表单元素继承父级的字体和颜色，干掉浏览器丑陋的默认字体 */
+  font: inherit;
+  color: inherit;
+
+  /* 清除默认边框和点击时的高亮外圈 */
+  border: none;
+  outline: none;
+  background: none;
+}
+
+button {
+  /* 按钮默认鼠标悬浮显示小手，提升交互直觉 */
+  cursor: pointer;
+}
+
+/* =========================================
+   4. 媒体与列表元素重置
+========================================= */
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%; /* 防止图片撑爆你的组件容器 */
+}
+
+ul,
+ol {
+  list-style: none; /* 清除列表自带的圆点和数字 */
+}
