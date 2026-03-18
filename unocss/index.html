@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unocss</title>
+
+    <style>
+      body {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body bg-dark>
+    <div
+      flex="~ col items-center"
+      p="6"
+      w="64"
+      bg="white dark:slate-800"
+      border="~ gray-200 rounded-2xl"
+      shadow="md hover:xl"
+      transition="all duration-300"
+      cursor="pointer"
+    >
+      <div
+        w="16"
+        h="16"
+        bg="blue-500"
+        text="white 2xl"
+        flex="~ items-center justify-center"
+        border="rounded-full"
+      >
+        R
+      </div>
+
+      <h3 m="t-4 b-1" text="lg font-bold gray-800 dark:gray-100">Rat</h3>
+
+      <p text="sm gray-500 center">Software Engineering Student</p>
+
+      <button
+        m="t-6"
+        px="4"
+        py="2"
+        bg="blue-600 hover:blue-700"
+        text="white sm"
+        border="rounded-lg none"
+      >
+        View Profile
+      </button>
+    </div>
+  </body>
+  <script type="module" src="main.js"></script>
+</html>

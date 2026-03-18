@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video overview</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+
+    <style>
+      body {
+        background-color: #121616;
+        width: 100hv;
+        min-height: 100vh;
+        padding: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 30px;
+        color: azure;
+      }
+
+      video {
+        width: 600px;
+        height: 337.5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>自定义封面poster</h1>
+    <video poster="video/rat-fill.svg" src="video/marvel.mp4" controls></video>
+
+    <h1>预加载</h1>
+    <video src="video/marvel.mp4" controls></video>
+
+    <h1>自动播放</h1>
+    <video src="video/Monument.mp4" autoplay muted loop></video>
+
+    <h1>DOM</h1>
+    <video class="video" src="video/marvel.mp4" controls></video>
+    <!-- 播放状态看板: duration、currentTime、 -->
+    <p>duration:</p>
+    <p>currentTime:</p>
+    <!-- 音量控制 -->
+    <!-- 静音按钮 -->
+    <!-- 播放速率 -->
+  </body>
+
+  <script>
+    // =========
+    //   DOM
+    //===========
+    let video = document.querySelector('.video');
+  </script>
+</html>

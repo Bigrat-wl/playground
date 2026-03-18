@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Code Try | Playground</title>
+    <title>Rat's Playground</title>
     <style>
       :root {
         --bg-color: #1a1a1a;
@@ -86,14 +86,14 @@
           path: './drawing-board/index.html',
         },
         {
-          name: 'components',
-          description: 'Various widgets',
-          path: './components',
-        },
-        {
           name: 'daisyUI',
           description: 'Try daisyUI',
           path: './daisyUI',
+        },
+        {
+          name: 'Unocss',
+          description: 'Try Unocss',
+          path: './unocss',
         },
         // 以后有新项目，直接在这里按格式添加即可：
         // {
@@ -111,7 +111,7 @@
         const html = projects
           .map(
             project => `
-        <a href="${project.path}" class="project-card">
+        <a href="/${project.path}/index.html" class="project-card">
           <h2 class="project-name">${project.name}</h2>
           <p class="project-desc">${project.description}</p>
         </a>
@@ -124,7 +124,6 @@
 
       // 执行渲染
       renderProjects();
-      
     </script>
   </body>
 </html>
