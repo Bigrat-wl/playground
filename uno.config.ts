@@ -22,4 +22,37 @@ export default defineConfig({
       primary: '#1a1a1a',
     },
   },
+
+  shortcuts: {
+    // 核心卡片容器
+    'item-card': `
+      flex items-center gap-4 p-4 rounded-xl 
+      bg-gray-50/50 border border-gray-200 
+      hover:bg-white hover:border-teal-500/30 hover:shadow-xl hover:shadow-teal-500/5
+      dark:bg-white/3 dark:border-white/5 
+      dark:hover:bg-white/5 dark:hover:border-teal-500/50
+      transition-all duration-300 no-underline
+    `,
+    // 文字颜色预设
+    'text-main': 'text-gray-700 dark:text-gray-200',
+    'text-sub': 'text-gray-400 dark:text-gray-500',
+  },
+  // content: {
+  //   pipeline: {
+  //     include: [
+  //       /\.(vue|svelte|[jt]sx|mdx?|astro|elm|php|phtml|html)($|\?)/,
+  //       '*.html',
+  //       'src/**/*.html',
+  //     ],
+
+  //     exclude: [
+  //       'node_modules',
+  //       'dist',
+  //       '.git',
+  //       '.vscode',
+  //       'public',
+  //       'src/example/videoElement',
+  //     ],
+  //   },
+  // },
 });

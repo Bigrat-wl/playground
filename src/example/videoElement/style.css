@@ -1,0 +1,47 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #121616;
+  width: 100hv;
+  min-height: 100vh;
+  padding: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+  color: azure;
+}
+
+video {
+  width: 600px;
+  height: 337.5px;
+}
+
+.panel {
+  width: 600px;
+  padding: 10px 26px;
+  background: #30323d;
+  color: #e8c547;
+  border-radius: 5px;
+}
+
+.btn {
+  padding: 9px 15px;
+  border-radius: 6px;
+  background: #b5bec6;
+  transition: all 0.15s;
+}
+.btn:hover {
+  background: #e7e7e3;
+}
+.btn:active {
+  background: #b5bec6;
+}

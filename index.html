@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rat's Playground</title>
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
     <style>
       :root {
         --bg-color: #1a1a1a;
@@ -21,6 +24,7 @@
         background-color: var(--bg-color);
         color: var(--text-color);
         max-width: 800px;
+        min-height: 100vh;
         margin: 0 auto;
         padding: 2rem;
         line-height: 1.6;
@@ -81,19 +85,19 @@
       // 1. 在这里配置你的项目列表
       const projects = [
         {
-          name: 'Drawing Board',
+          name: 'Example',
           description: 'Canvas & Mouse interaction experiments.',
-          path: './drawing-board/index.html',
+          path: 'src/example',
         },
         {
           name: 'daisyUI',
           description: 'Try daisyUI',
-          path: './daisyUI',
+          path: 'src/daisyUI/',
         },
         {
           name: 'Unocss',
           description: 'Try Unocss',
-          path: './unocss',
+          path: 'src/unocss',
         },
         // 以后有新项目，直接在这里按格式添加即可：
         // {

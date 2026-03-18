@@ -5,31 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Video overview</title>
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-    />
-
-    <style>
-      body {
-        background-color: #121616;
-        width: 100hv;
-        min-height: 100vh;
-        padding: 100px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        gap: 30px;
-        color: azure;
-      }
-
-      video {
-        width: 600px;
-        height: 337.5px;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
     <h1>自定义封面poster</h1>
     <video poster="video/rat-fill.svg" src="video/marvel.mp4" controls></video>
@@ -43,17 +21,27 @@
     <h1>DOM</h1>
     <video class="video" src="video/marvel.mp4" controls></video>
     <!-- 播放状态看板: duration、currentTime、 -->
-    <p>duration:</p>
-    <p>currentTime:</p>
-    <!-- 音量控制 -->
-    <!-- 静音按钮 -->
-    <!-- 播放速率 -->
+    <div class="panel">
+      <p>duration:</p>
+      <p>currentTime:</p>
+      <button class="btn play">play</button>
+      <!-- 音量控制 -->
+      <!-- 静音按钮 -->
+      <!-- 播放速率 -->
+    </div>
   </body>
 
   <script>
     // =========
     //   DOM
     //===========
-    let video = document.querySelector('.video');
+    const video = document.querySelector('.video');
+    const play = document.querySelector('.play');
+
+    play.addEventListener('click', () => {
+      video.play();
+    });
   </script>
+
+  <script type="module" src="main.js"></script>
 </html>
