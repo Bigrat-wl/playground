@@ -22,12 +22,34 @@
     <video class="video" src="video/marvel.mp4" controls></video>
     <!-- 播放状态看板: duration、currentTime、 -->
     <div class="panel">
-      <p>duration:</p>
-      <p>currentTime:</p>
-      <button class="btn play">play</button>
+      <button class="btn" id="play">
+        <img class="icon" src="icon/play.svg" alt="play button" />
+      </button>
       <!-- 音量控制 -->
+      <div class="playback">
+        <img src="icon/sound.svg" alt="sound" />
+        <input
+          type="range"
+          id="volume"
+          min="0"
+          max="1"
+          step="0.01"
+          value="50"
+        />
+      </div>
       <!-- 静音按钮 -->
       <!-- 播放速率 -->
+      <div class="playback">
+        <img src="icon/rate.svg" alt="rate" />
+        <input type="range" id="rate" min="0" max="1" step="0.01" value="0" />
+      </div>
+      <!-- 快进按键 -->
+      <button class="btn" id="forward">
+        <img class="icon" src="icon/forward.svg" alt="fast forward button" />
+      </button>
+      <button class="btn" id="rewind">
+        <img class="icon" src="icon/rewind.svg" alt="rewind button" />
+      </button>
     </div>
   </body>
 
@@ -36,10 +58,51 @@
     //   DOM
     //===========
     const video = document.querySelector('.video');
-    const play = document.querySelector('.play');
+    const playBtn = document.querySelector('#play');
+    const playIcon = document.querySelector('.icon');
+    const volume = document.querySelector('#volume');
+    const rate = document.querySelector('#rate');
+    const forward = document.querySelector('#forward');
+    const rewind = document.querySelector('#rewind');
 
-    play.addEventListener('click', () => {
-      video.play();
+    // =========
+    //   STATE
+    //===========
+    let isPlaying = !video.paused;
+
+    // =========
+    //   EVENT
+    //===========
+
+    playBtn.addEventListener('click', () => {
+      if (isPlaying) {
+        video.pause();
+        isPlaying = false;
+      } else {
+        video.play();
+        isPlaying = true;
+      }
+    });
+
+    video.addEventListener('play', () => {
+      playIcon.src = 'icon/pause.svg';
+    });
+    video.addEventListener('pause', () => {
+      playIcon.src = 'icon/play.svg';
+    });
+
+    volume.addEventListener('input', function () {
+      video.volume = this.value;
+    });
+    volume.addEventListener('input', function () {
+      video.volume = this.value;
+    });
+
+    forward.addEventListener('click', () => {
+      video.currentTime += 5;
+    });
+    rewind.addEventListener('click', () => {
+      video.currentTime -= 5;
     });
   </script>
 

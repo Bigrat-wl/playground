@@ -31,17 +31,31 @@ video {
   background: #30323d;
   color: #e8c547;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .btn {
-  padding: 9px 15px;
+  /* padding: 4px 10px; */
+  width: 45px;
+  height: 50px;
+  overflow: hidden;
   border-radius: 6px;
-  background: #b5bec6;
+  background: none;
   transition: all 0.15s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.btn:hover {
-  background: #e7e7e3;
+
+.icon {
+  height: 100%;
 }
-.btn:active {
-  background: #b5bec6;
+
+.playback {
+  width: 300px;
+  display: flex;
+  gap: 10px;
+  align-content: center;
 }
